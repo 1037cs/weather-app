@@ -1,18 +1,13 @@
 import { FC, useEffect, useState } from "react";
 import styles from "./LocationBlock.module.scss";
-import axios from "axios";
+import { getLocation } from "../../../../api/getLocation";
 
 export const LocationBlock: FC = () => {
-  const [location, setLocation] = useState('a');
+  const [location, setLocation] = useState("Samara");
 
   useEffect(() => {
-    getLocation();
+    getLocation().then((data) => setLocation(data.city));
   }, []);
-
-  const getLocation = async () => {
-    const location = await axios.get("https://ipapi.co/json");
-    setLocation(location.data.city)
-  };
 
   return <div className={styles.location}>{location}</div>;
 };
