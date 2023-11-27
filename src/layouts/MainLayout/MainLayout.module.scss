@@ -1,0 +1,10 @@
+.layout {
+  width: 900px;
+  height: 600px;
+  background-color: var(--bg-left);
+
+  display: flex;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 36px 48px;
+}

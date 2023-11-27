@@ -1,11 +1,11 @@
 import "@/assets/styles/index.scss";
-import { WeatherDisplay } from "../../modules/WeatherDisplay";
 import styles from "./App.module.scss";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
   return (
     <div className={styles.wrapper}>
-      <WeatherDisplay></WeatherDisplay>
+      <HomePage />
     </div>
   );
 }
