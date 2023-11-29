@@ -1,23 +1,8 @@
-import { FC, useEffect, useState } from "react";
-import { getDate } from "../../../../../../utils/getDate";
-import { getTime } from "../../../../../../utils/getTime";
-
-const setDateAndTime = () => {
-  const { day, month, year } = getDate();
-  const { hours, minutes } = getTime();
-  return `${day}.${month}.${year},  ${hours}:${minutes}`;
-};
+import { FC } from "react";
+import { useDateTime } from "../../../../../../hooks/useDateTime";
 
 export const DataDisplay: FC = () => {
-  const [currentDateTime, setCurrentDateTime] = useState(setDateAndTime());
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentDateTime(setDateAndTime());
-    }, 60000);
-
-    return () => clearInterval(intervalId);
-  }, []);
+  const currentDateTime = useDateTime();
 
   return <div>{currentDateTime}</div>;
 };

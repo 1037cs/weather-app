@@ -1,13 +1,9 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import styles from "./LocationBlock.module.scss";
-import { getLocation } from "../../../../api/getLocation";
+import { useGeolocation } from "../../../../../../hooks/useGeolocation";
 
 export const LocationBlock: FC = () => {
-  const [location, setLocation] = useState("Samara");
-
-  useEffect(() => {
-    getLocation().then((data) => setLocation(data.city));
-  }, []);
+  const location = useGeolocation();
 
   return <div className={styles.location}>{location}</div>;
 };
