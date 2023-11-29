@@ -7,4 +7,9 @@
   color: var(--text-black);
   font-size: 1.8rem;
   font-weight: 500;
+
+  @media screen and (max-width: 743px) {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
