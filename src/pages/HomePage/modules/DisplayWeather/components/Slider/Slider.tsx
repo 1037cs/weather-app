@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import styles from "./Slider.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useMobile from "../../../../../../hooks/useMobile";
@@ -10,18 +10,12 @@ interface ISlider {
   data: forecastType[];
 }
 
-export const Slider: FC<ISlider> = ({ data }) => {
+export const Slider: FC<ISlider> = memo(({ data }) => {
   const isMobile = useMobile(743);
-  console.log(data);
 
   return (
     <section className={styles.wrapper}>
-      <Swiper
-        spaceBetween={10}
-        slidesPerView={isMobile ? 3 : 4}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
-      >
+      <Swiper spaceBetween={10} slidesPerView={isMobile ? 3 : 4}>
         {data.map((day) => (
           <SwiperSlide key={day.date}>
             <div className={styles.slide}>
@@ -34,4 +28,4 @@ export const Slider: FC<ISlider> = ({ data }) => {
       </Swiper>
     </section>
   );
-};
+});

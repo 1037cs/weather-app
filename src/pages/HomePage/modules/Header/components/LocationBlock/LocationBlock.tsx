@@ -3,6 +3,7 @@ import styles from "./LocationBlock.module.scss";
 import { AppContext } from "../../../../../../App";
 import { Popup } from "../../../../../../UI/Popup";
 import { SearchCityForm } from "../SearchCityForm";
+import { AnimatePresence } from "framer-motion";
 
 export const LocationBlock: FC = () => {
   const context = useContext(AppContext);
@@ -15,6 +16,7 @@ export const LocationBlock: FC = () => {
   const openPopup = () => {
     setIsShowPopup(true);
   };
+  console.log("render");
 
   return (
     <>
@@ -23,11 +25,13 @@ export const LocationBlock: FC = () => {
           ? context?.location?.name
           : "Determine your location..."}
       </div>
-      {isShowPopup && (
-        <Popup onClose={closePopup}>
-          <SearchCityForm context={context} onClose={closePopup}/>
-        </Popup>
-      )}
+      <AnimatePresence initial={false} onExitComplete={() => null}>
+        {isShowPopup && (
+          <Popup onClose={closePopup}>
+            <SearchCityForm context={context} onClose={closePopup} />
+          </Popup>
+        )}
+      </AnimatePresence>
     </>
   );
 };
