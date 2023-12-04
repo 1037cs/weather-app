@@ -1,0 +1,49 @@
+.form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  .cities {
+    width: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cityCard {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    cursor: pointer;
+
+    border-radius: 8px;
+    border: 1px solid var(--text-light-gray);
+
+    transition: border 0.3s ease;
+
+    @media screen and (max-width: 743px) {
+      gap: 4px;
+      flex-direction: column;
+    }
+
+    .city {
+      @media screen and (max-width: 743px) {
+        color: var(--text-black);
+      }
+    }
+
+    .country {
+      @media screen and (max-width: 743px) {
+        font-size: 0.8rem;
+      }
+    }
+
+    &:hover {
+      border: 1px solid var(--text-black);
+    }
+  }
+}

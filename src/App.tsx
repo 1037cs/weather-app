@@ -4,7 +4,7 @@ import { createContext, useState } from "react";
 
 export type LocationType = { name: string; lat: string; lon: string } | null;
 
-type AppContextType = {
+export type AppContextType = {
   location: LocationType;
   setLocation: React.Dispatch<React.SetStateAction<LocationType>>;
 };

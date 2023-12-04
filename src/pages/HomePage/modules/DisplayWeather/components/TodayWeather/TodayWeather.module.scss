@@ -15,7 +15,11 @@
       font-weight: 700;
       position: relative;
 
-      &::after{
+      @media screen and (max-width: 450px) {
+        font-size: 6rem;
+      }
+
+      &::after {
         content: "°";
         position: absolute;
         right: -5rem;
@@ -24,29 +28,29 @@
     }
 
     .weather {
-        width: fit-content;
+      width: fit-content;
       font-size: 3rem;
       font-weight: 500;
     }
   }
 
-  .addictional{
+  .addictional {
     display: flex;
     flex-direction: column;
     gap: 4px;
     position: relative;
     top: -10px;
 
-    .row{
-        display: flex;
-        gap: 12px;
-        align-items: center;
-        font-weight: 500;
-        
-        .icon{
-            width: 28px;
-            height: 28px;
-        }
+    .row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-weight: 500;
+
+      .icon {
+        width: 28px;
+        height: 28px;
+      }
     }
   }
 }
