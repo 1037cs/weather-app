@@ -1,0 +1,52 @@
+.wrapper {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  position: relative;
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    .temperature {
+      font-size: 10rem;
+      font-weight: 700;
+      position: relative;
+
+      &::after{
+        content: "°";
+        position: absolute;
+        right: -5rem;
+        top: -2rem;
+      }
+    }
+
+    .weather {
+        width: fit-content;
+      font-size: 3rem;
+      font-weight: 500;
+    }
+  }
+
+  .addictional{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+    top: -10px;
+
+    .row{
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        font-weight: 500;
+        
+        .icon{
+            width: 28px;
+            height: 28px;
+        }
+    }
+  }
+}
