@@ -1,12 +1,23 @@
 import "@/assets/styles/index.scss";
-import styles from "./App.module.scss";
 import HomePage from "./pages/HomePage/HomePage";
+import { createContext, useState } from "react";
+
+export type LocationType = { name: string; lat: string; lon: string } | null;
+
+type AppContextType = {
+  location: LocationType;
+  setLocation: React.Dispatch<React.SetStateAction<LocationType>>;
+};
+
+export const AppContext = createContext<AppContextType | null>(null);
 
 function App() {
+  const [location, setLocation] = useState<LocationType>(null);
+
   return (
-    <div className={styles.wrapper}>
-      <HomePage />
-    </div>
+    <AppContext.Provider value={{ location, setLocation }}>
+      <HomePage />;
+    </AppContext.Provider>
   );
 }
 

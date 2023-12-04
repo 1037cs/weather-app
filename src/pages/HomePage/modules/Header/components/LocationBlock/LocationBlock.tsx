@@ -1,9 +1,13 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import styles from "./LocationBlock.module.scss";
-import { useGeolocation } from "../../../../../../hooks/useGeolocation";
+import { AppContext } from "../../../../../../App";
 
 export const LocationBlock: FC = () => {
-  const location = useGeolocation();
+  const context = useContext(AppContext);
 
-  return <div className={styles.location}>{location}</div>;
+  return (
+    <div className={styles.location}>
+      {context?.location?.name ? context?.location?.name : "Determine your location..."}
+    </div>
+  );
 };

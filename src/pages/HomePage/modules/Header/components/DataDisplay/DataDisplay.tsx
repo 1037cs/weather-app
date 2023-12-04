@@ -5,6 +5,6 @@ export const DataDisplay: FC = () => {
   const currentDateTime = useDateTime();
 
   return <div>{currentDateTime}</div>;
-};
+}
 
 export default DataDisplay;

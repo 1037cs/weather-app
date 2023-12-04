@@ -8,8 +8,20 @@
   font-size: 1.8rem;
   font-weight: 500;
 
+  animation: init 0.3s forwards;
+
   @media screen and (max-width: 743px) {
     flex-direction: column;
     gap: 12px;
+  }
+}
+
+@keyframes init {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
