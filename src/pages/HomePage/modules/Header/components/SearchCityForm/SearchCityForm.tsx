@@ -20,7 +20,7 @@ export const SearchCityForm: FC<ISearchCityForm> = ({ context, onClose }) => {
 
   const fetchCities = async () => {
     const results = await getCities(debouncedSearchCity);
-    setCities(results.data.sort((a, b) => b.population - a.population));
+    setCities(results.data);
   };
 
   useEffect(() => {
@@ -35,7 +35,10 @@ export const SearchCityForm: FC<ISearchCityForm> = ({ context, onClose }) => {
   }, [debouncedSearchCity]);
 
   const onChangeHandler = (value: string) => {
-    setSearchCity(value);
+    const regex = /^[a-zA-Z\s]*$/;
+    if (regex.test(value)) {
+      setSearchCity(value);
+    }
   };
 
   const setLocationHandler = (e) => {
@@ -52,6 +55,7 @@ export const SearchCityForm: FC<ISearchCityForm> = ({ context, onClose }) => {
         onChange={onChangeHandler}
         loader={Spinner}
         isLoading={isSearching}
+        placeholder="City"
       />
       <div className={styles.cities}>
         {cities.length !== 0 &&

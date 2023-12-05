@@ -6,9 +6,10 @@ import { motion } from "framer-motion";
 interface IPopup {
   children: ReactNode;
   onClose: () => void;
+  headerTitle?: string;
 }
 
-export const Popup: FC<IPopup> = ({ children, onClose }) => {
+export const Popup: FC<IPopup> = ({ children, onClose, headerTitle }) => {
   const onCloseHandler = () => {
     onClose();
   };
@@ -52,7 +53,7 @@ export const Popup: FC<IPopup> = ({ children, onClose }) => {
           exit="exit"
         >
           <header className={styles.header}>
-            <h1 className={styles.title}>Choose a city</h1>
+            <h1 className={styles.title}>{headerTitle}</h1>
             <div className={styles.close} onClick={onCloseHandler} />
           </header>
           <main className={styles.main}>{children}</main>

@@ -12,7 +12,7 @@ const GEO_API_URL = "https://wft-geo-db.p.rapidapi.com/v1/geo/cities";
 export const getCities = async (word: string) => {
   try {
     const location = await axios.get(
-      `${GEO_API_URL}?namePrefix=${word}&minPopulation=1000&limit=10`,
+      `${GEO_API_URL}?namePrefix=${word}&minPopulation=1000&limit=10&sort=-population`,
       options
     );
     return location.data;

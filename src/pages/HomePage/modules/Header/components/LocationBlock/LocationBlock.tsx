@@ -16,7 +16,6 @@ export const LocationBlock: FC = () => {
   const openPopup = () => {
     setIsShowPopup(true);
   };
-  console.log("render");
 
   return (
     <>
@@ -27,7 +26,7 @@ export const LocationBlock: FC = () => {
       </div>
       <AnimatePresence initial={false} onExitComplete={() => null}>
         {isShowPopup && (
-          <Popup onClose={closePopup}>
+          <Popup onClose={closePopup} headerTitle="Enter a city on english">
             <SearchCityForm context={context} onClose={closePopup} />
           </Popup>
         )}

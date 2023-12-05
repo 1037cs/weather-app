@@ -6,9 +6,16 @@ interface IInput {
   onChange: (e: string) => void;
   loader?: JSX.Element;
   isLoading?: boolean;
+  placeholder?: string;
 }
 
-export const Input: FC<IInput> = ({ value, onChange, loader, isLoading }) => {
+export const Input: FC<IInput> = ({
+  value,
+  onChange,
+  loader,
+  isLoading,
+  placeholder,
+}) => {
   return (
     <div className={styles.inputWrapper}>
       {isLoading && <div className={styles.loader}>{loader}</div>}
@@ -16,6 +23,7 @@ export const Input: FC<IInput> = ({ value, onChange, loader, isLoading }) => {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className={styles.input}
+        placeholder={placeholder}
       />
     </div>
   );

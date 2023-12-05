@@ -1,5 +1,6 @@
 .wrapper {
   width: 360px;
+  cursor: grab;
 
   @media screen and (max-width: 743px) {
     width: 278px;
@@ -14,10 +15,6 @@
     flex-direction: column;
     align-items: center;
     gap: 12px;
-
-    * {
-      cursor: default;
-    }
 
     .title {
       color: var(--text-black);
